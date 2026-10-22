@@ -1,0 +1,48 @@
+name: Language pack review
+description: Coordinate native review of one EUROPA Alignment language pack
+title: "Review: [language code] language pack"
+labels: ["language-review"]
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language and ISO 639-3 code
+      placeholder: "Swedish (swe)"
+    validations:
+      required: true
+  - type: input
+    id: variant
+    attributes:
+      label: Variant and script reviewed
+      placeholder: "swe_Latn"
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Reviewer language background
+      description: Briefly describe the experience relevant to judging naturalness and task difficulty.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Review checks
+      options:
+        - label: All 24 templates preserve the English source meaning, every condition, the placeholders and the difficulty.
+          required: true
+        - label: Multiple-choice options and gold letters are correct.
+          required: true
+        - label: Identifiers, message roles and protected literals are preserved.
+          required: true
+        - label: Reference answers are natural and complete in the target language.
+          required: true
+        - label: Harmful prompts remain non-operational and benign prompts remain answerable.
+          required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Proposed corrections or review notes
+      description: Link a pull request if corrections are already prepared.
+    validations:
+      required: true

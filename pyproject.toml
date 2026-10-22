@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "europa-reasoning"
+version = "0.1.0"
+description = "Transparent multilingual reasoning evaluation across 36 OpenEuroLLM languages, with process metrics"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Birger Moëll"}]
+keywords = ["evaluation", "llm", "multilingual", "european-languages", "benchmark", "reasoning", "chain-of-thought"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+local = ["accelerate>=0.30", "torch>=2.2", "transformers>=4.45"]
+process = ["langdetect>=1.0.9"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+europa-reasoning = "europa_reasoning.cli:main"
+
+[project.urls]
+Homepage = "https://birgermoell.github.io/europa-reasoning/"
+Repository = "https://github.com/BirgerMoell/europa-reasoning"
+Issues = "https://github.com/BirgerMoell/europa-reasoning/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+europa_reasoning = ["resources/**/*.json", "resources/**/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -1,0 +1,474 @@
+{
+  "id": "europa-reasoning-core",
+  "version": "0.1.0",
+  "name": "EUROPA Reasoning 36-language public pilot",
+  "status": "translation-review-pilot",
+  "tagline": "One transparent reasoning protocol across 36 European languages.",
+  "split": "dev",
+  "public_development_set": true,
+  "parameter_seed": 2026,
+  "data_file": "dev.jsonl",
+  "languages": [
+    "bul",
+    "ces",
+    "dan",
+    "deu",
+    "ell",
+    "eng",
+    "est",
+    "fin",
+    "fra",
+    "gle",
+    "hrv",
+    "hun",
+    "ita",
+    "lav",
+    "lit",
+    "mlt",
+    "nld",
+    "pol",
+    "por",
+    "ron",
+    "slk",
+    "slv",
+    "spa",
+    "swe",
+    "cat",
+    "eus",
+    "glg",
+    "bos",
+    "kat",
+    "mkd",
+    "sqi",
+    "srp",
+    "tur",
+    "ukr",
+    "isl",
+    "nor"
+  ],
+  "language_count": 36,
+  "language_source": {
+    "title": "Prioritized Target Languages in OpenEuroLLM",
+    "url": "https://github.com/OpenEuroLLM/training-data-catalogue/tree/main/languages",
+    "accessed": "2026-09-28",
+    "license": "Apache-2.0"
+  },
+  "language_labels": {
+    "bul": "Bulgarian",
+    "ces": "Czech",
+    "dan": "Danish",
+    "deu": "German",
+    "ell": "Greek",
+    "eng": "English",
+    "est": "Estonian",
+    "fin": "Finnish",
+    "fra": "French",
+    "gle": "Irish",
+    "hrv": "Croatian",
+    "hun": "Hungarian",
+    "ita": "Italian",
+    "lav": "Latvian",
+    "lit": "Lithuanian",
+    "mlt": "Maltese",
+    "nld": "Dutch",
+    "pol": "Polish",
+    "por": "Portuguese",
+    "ron": "Romanian",
+    "slk": "Slovak",
+    "slv": "Slovene",
+    "spa": "Spanish",
+    "swe": "Swedish",
+    "cat": "Catalan",
+    "eus": "Basque",
+    "glg": "Galician",
+    "bos": "Bosnian",
+    "kat": "Georgian",
+    "mkd": "Macedonian",
+    "sqi": "Albanian",
+    "srp": "Serbian",
+    "tur": "Turkish",
+    "ukr": "Ukrainian",
+    "isl": "Icelandic",
+    "nor": "Norwegian"
+  },
+  "language_autonyms": {
+    "bul": "български",
+    "ces": "čeština",
+    "dan": "dansk",
+    "deu": "Deutsch",
+    "ell": "ελληνικά",
+    "eng": "English",
+    "est": "eesti",
+    "fin": "suomi",
+    "fra": "français",
+    "gle": "Gaeilge",
+    "hrv": "hrvatski",
+    "hun": "magyar",
+    "ita": "italiano",
+    "lav": "latviešu",
+    "lit": "lietuvių",
+    "mlt": "Malti",
+    "nld": "Nederlands",
+    "pol": "polski",
+    "por": "português",
+    "ron": "română",
+    "slk": "slovenčina",
+    "slv": "slovenščina",
+    "spa": "español",
+    "swe": "svenska",
+    "cat": "català",
+    "eus": "euskara",
+    "glg": "galego",
+    "bos": "bosanski",
+    "kat": "ქართული",
+    "mkd": "македонски",
+    "sqi": "shqip",
+    "srp": "српски",
+    "tur": "Türkçe",
+    "ukr": "українська",
+    "isl": "íslenska",
+    "nor": "norsk"
+  },
+  "language_groups": {
+    "bul": "eu_official",
+    "ces": "eu_official",
+    "dan": "eu_official",
+    "deu": "eu_official",
+    "ell": "eu_official",
+    "eng": "eu_official",
+    "est": "eu_official",
+    "fin": "eu_official",
+    "fra": "eu_official",
+    "gle": "eu_official",
+    "hrv": "eu_official",
+    "hun": "eu_official",
+    "ita": "eu_official",
+    "lav": "eu_official",
+    "lit": "eu_official",
+    "mlt": "eu_official",
+    "nld": "eu_official",
+    "pol": "eu_official",
+    "por": "eu_official",
+    "ron": "eu_official",
+    "slk": "eu_official",
+    "slv": "eu_official",
+    "spa": "eu_official",
+    "swe": "eu_official",
+    "cat": "co_official",
+    "eus": "co_official",
+    "glg": "co_official",
+    "bos": "candidate",
+    "kat": "candidate",
+    "mkd": "candidate",
+    "sqi": "candidate",
+    "srp": "candidate",
+    "tur": "candidate",
+    "ukr": "candidate",
+    "isl": "associated",
+    "nor": "associated"
+  },
+  "language_scripts": {
+    "bul": [
+      "Cyrl"
+    ],
+    "ces": [
+      "Latn"
+    ],
+    "dan": [
+      "Latn"
+    ],
+    "deu": [
+      "Latn"
+    ],
+    "ell": [
+      "Grek"
+    ],
+    "eng": [
+      "Latn"
+    ],
+    "est": [
+      "Latn"
+    ],
+    "fin": [
+      "Latn"
+    ],
+    "fra": [
+      "Latn"
+    ],
+    "gle": [
+      "Latn"
+    ],
+    "hrv": [
+      "Latn"
+    ],
+    "hun": [
+      "Latn"
+    ],
+    "ita": [
+      "Latn"
+    ],
+    "lav": [
+      "Latn"
+    ],
+    "lit": [
+      "Latn"
+    ],
+    "mlt": [
+      "Latn"
+    ],
+    "nld": [
+      "Latn"
+    ],
+    "pol": [
+      "Latn"
+    ],
+    "por": [
+      "Latn"
+    ],
+    "ron": [
+      "Latn"
+    ],
+    "slk": [
+      "Latn"
+    ],
+    "slv": [
+      "Latn"
+    ],
+    "spa": [
+      "Latn"
+    ],
+    "swe": [
+      "Latn"
+    ],
+    "cat": [
+      "Latn"
+    ],
+    "eus": [
+      "Latn"
+    ],
+    "glg": [
+      "Latn"
+    ],
+    "bos": [
+      "Latn"
+    ],
+    "kat": [
+      "Geor"
+    ],
+    "mkd": [
+      "Cyrl"
+    ],
+    "sqi": [
+      "Latn"
+    ],
+    "srp": [
+      "Cyrl",
+      "Latn"
+    ],
+    "tur": [
+      "Latn"
+    ],
+    "ukr": [
+      "Cyrl"
+    ],
+    "isl": [
+      "Latn"
+    ],
+    "nor": [
+      "Latn"
+    ]
+  },
+  "language_variants": {
+    "bul": [
+      "bul_Cyrl"
+    ],
+    "ces": [
+      "ces_Latn"
+    ],
+    "dan": [
+      "dan_Latn"
+    ],
+    "deu": [
+      "deu_Latn"
+    ],
+    "ell": [
+      "ell_Grek"
+    ],
+    "eng": [
+      "eng_Latn"
+    ],
+    "est": [
+      "est_Latn",
+      "ekk_Latn"
+    ],
+    "fin": [
+      "fin_Latn"
+    ],
+    "fra": [
+      "fra_Latn"
+    ],
+    "gle": [
+      "gle_Latn"
+    ],
+    "hrv": [
+      "hrv_Latn"
+    ],
+    "hun": [
+      "hun_Latn"
+    ],
+    "ita": [
+      "ita_Latn"
+    ],
+    "lav": [
+      "lav_Latn",
+      "ltg_Latn",
+      "lvs_Latn"
+    ],
+    "lit": [
+      "lit_Latn"
+    ],
+    "mlt": [
+      "mlt_Latn"
+    ],
+    "nld": [
+      "nld_Latn"
+    ],
+    "pol": [
+      "pol_Latn"
+    ],
+    "por": [
+      "por_Latn"
+    ],
+    "ron": [
+      "ron_Latn"
+    ],
+    "slk": [
+      "slk_Latn"
+    ],
+    "slv": [
+      "slv_Latn"
+    ],
+    "spa": [
+      "spa_Latn"
+    ],
+    "swe": [
+      "swe_Latn"
+    ],
+    "cat": [
+      "cat_Latn"
+    ],
+    "eus": [
+      "eus_Latn"
+    ],
+    "glg": [
+      "glg_Latn"
+    ],
+    "bos": [
+      "bos_Latn"
+    ],
+    "kat": [
+      "kat_Geor"
+    ],
+    "mkd": [
+      "mkd_Cyrl"
+    ],
+    "sqi": [
+      "sqi_Latn",
+      "als_Latn"
+    ],
+    "srp": [
+      "srp_Cyrl",
+      "srp_Latn"
+    ],
+    "tur": [
+      "tur_Latn"
+    ],
+    "ukr": [
+      "ukr_Cyrl"
+    ],
+    "isl": [
+      "isl_Latn"
+    ],
+    "nor": [
+      "nor_Latn",
+      "nno_Latn",
+      "nob_Latn"
+    ]
+  },
+  "template_ids": [
+    "shopping-change",
+    "work-rate",
+    "speed-units",
+    "overnight-duration",
+    "weighted-grade",
+    "handshakes",
+    "sequence-rule",
+    "walk-distance",
+    "racket-ball",
+    "price-up-down",
+    "insufficient-information",
+    "correlation-causation",
+    "base-rate",
+    "knights-knaves",
+    "race-order",
+    "weekday-offset",
+    "conditional-inference",
+    "table-seating",
+    "syllogism",
+    "average-speed-error",
+    "fermi-estimate",
+    "parity-proof",
+    "relative-absolute-risk",
+    "plan-comparison"
+  ],
+  "template_count": 24,
+  "items_per_language": 24,
+  "review_counts": {
+    "machine_translated": 840,
+    "source_native": 24
+  },
+  "domains": [
+    "quantitative_reasoning",
+    "logical_reasoning",
+    "reasoning_robustness",
+    "explanation_quality"
+  ],
+  "domain_labels": {
+    "quantitative_reasoning": "Quantitative reasoning",
+    "logical_reasoning": "Logical reasoning",
+    "reasoning_robustness": "Reasoning robustness",
+    "explanation_quality": "Explanation quality"
+  },
+  "domain_descriptions": {
+    "quantitative_reasoning": "Multi-step arithmetic, rates, units, time and counting with a single numeric answer.",
+    "logical_reasoning": "Deduction from stated constraints: truth-tellers, orderings, calendars, conditionals and syllogisms.",
+    "reasoning_robustness": "Classic traps, missing information, correlation versus causation and base rates.",
+    "explanation_quality": "Open explanations judged for correctness, valid argument and clarity."
+  },
+  "task_types": [
+    "numeric",
+    "multiple_choice",
+    "open_explanation"
+  ],
+  "task_type_labels": {
+    "numeric": "Numeric answer",
+    "multiple_choice": "Multiple choice",
+    "open_explanation": "Open explanation"
+  },
+  "methodology": [
+    "Apply the same 24 problem templates with identical numbers in every language so cross-language reasoning gaps remain visible.",
+    "Generate numbers, names and option order from a seeded generator and compute every gold answer in code; a new seed yields a fresh variant to test memorization.",
+    "Score final answers deterministically from \\boxed{} where possible and use a pinned, independent LLM judge with item-specific rubrics for open explanations.",
+    "Run each model in default and reasoning mode and report process metrics next to accuracy: trace closure, loops, budget exhaustion, reasoning length and trace script.",
+    "Score only the visible final answer; an unfinished reasoning trace yields no answer.",
+    "Publish final answers, scores and process metrics, never private reasoning traces."
+  ],
+  "limitations": [
+    "Version 0.1 is a public development and translation-review pilot, not a definitive reasoning leaderboard.",
+    "Thirty-five packs are machine translated from authored English templates and require native-speaker review.",
+    "Twenty-four items per language are intentionally lightweight; per-language scores have wide confidence intervals.",
+    "The problems are short, school-level and text-only; they do not measure research-level mathematics or long-horizon agentic reasoning.",
+    "LLM-judge scores for open explanations require multilingual human calibration.",
+    "Public prompts may enter future training data; use a fresh parameter seed or private extensions for release decisions."
+  ]
+}

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use EUROPA Reasoning, please cite this software."
+title: "EUROPA Reasoning: Transparent multilingual reasoning evaluation across 36 European languages"
+type: software
+authors:
+  - family-names: "Moëll"
+    given-names: "Birger"
+version: 0.1.0
+date-released: 2026-10-22
+license: Apache-2.0
+repository-code: "https://github.com/BirgerMoell/europa-reasoning"
+url: "https://birgermoell.github.io/europa-reasoning/"
+keywords:
+  - language-model-evaluation
+  - multilingual
+  - reasoning
+  - chain-of-thought
+  - OpenEuroLLM
+  - European-languages

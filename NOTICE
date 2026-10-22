@@ -1,0 +1,13 @@
+EUROPA Reasoning
+Copyright 2026 Birger Moëll
+
+This project is derived from EUROPA Alignment and EUROPA Eval:
+https://github.com/BirgerMoell/europa-alignment
+https://github.com/BirgerMoell/europa-eval
+
+EUROPA Eval, EUROPA Alignment and EUROPA Reasoning are licensed under Apache License 2.0.
+The original public reasoning templates in EUROPA Reasoning are separately
+released under CC0 1.0 as described in DATA_LICENSE.
+
+Third-party research informed the evaluation design but their benchmark
+prompts and datasets are not redistributed here. See docs/SOURCES.md.

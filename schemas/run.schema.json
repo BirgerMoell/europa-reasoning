@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://birgermoell.github.io/europa-reasoning/schemas/run.schema.json",
+  "title": "EUROPA Reasoning run",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "status",
+    "diagnostic",
+    "suite",
+    "model",
+    "protocol",
+    "started_at",
+    "finished_at",
+    "summary",
+    "samples",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "status": {"enum": ["completed", "partial", "failed"]},
+    "diagnostic": {"type": "boolean"},
+    "suite": {
+      "type": "object",
+      "required": ["id", "version", "split", "public_development_set"]
+    },
+    "model": {
+      "type": "object",
+      "required": ["id", "revision", "backend"],
+      "properties": {
+        "id": {"type": "string"},
+        "revision": {"type": ["string", "null"]},
+        "backend": {"type": "string"}
+      }
+    },
+    "judge": {"type": ["object", "null"]},
+    "protocol": {"type": "object"},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"},
+    "summary": {"type": "object"},
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item_id", "response", "score", "passed", "scorer", "error"]
+      }
+    },
+    "rescoring_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_suite_version",
+          "target_suite_version",
+          "reason",
+          "model_responses_reused",
+          "judge_outputs_reused",
+          "changes"
+        ]
+      }
+    },
+    "judging_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "started_at",
+          "finished_at",
+          "judge",
+          "target_responses_reused",
+          "judged_item_ids",
+          "failed_item_ids"
+        ]
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

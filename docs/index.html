@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="EUROPA Reasoning is an open, evidence-first reasoning evaluation across the 36 languages prioritized by OpenEuroLLM, with process metrics next to accuracy.">
+    <meta name="theme-color" content="#092750">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="EUROPA Reasoning">
+    <meta property="og:title" content="EUROPA Reasoning — multilingual reasoning, made inspectable">
+    <meta property="og:description" content="The same 24 reasoning problems in 36 languages, scored for accuracy and for how the model reasons: closure, loops, length and language.">
+    <meta property="og:url" content="https://birgermoell.github.io/europa-reasoning/">
+    <meta property="og:image" content="https://birgermoell.github.io/europa-reasoning/og.png">
+    <meta property="og:image:alt" content="EUROPA Reasoning: multilingual reasoning evidence across 36 European languages">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EUROPA Reasoning — multilingual reasoning, made inspectable">
+    <meta name="twitter:description" content="An open reasoning evaluation for API and local language models across 36 languages.">
+    <meta name="twitter:image" content="https://birgermoell.github.io/europa-reasoning/og.png">
+    <link rel="canonical" href="https://birgermoell.github.io/europa-reasoning/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=20261022-1">
+    <title>EUROPA Reasoning — multilingual reasoning, made inspectable</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="EUROPA Reasoning home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>EUROPA <b>REASONING</b></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#languages">Languages</a>
+        <a href="#map">Reasoning map</a>
+        <a href="#method">Method</a>
+        <a href="#run">Run it</a>
+        <a href="#results">Evidence</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/BirgerMoell/europa-reasoning">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> OPENEUROLLM · MULTILINGUAL REASONING</p>
+          <h1>Test reasoning<br><em>in 36 languages.</em></h1>
+          <p class="hero-lead">Run the same 24 problems, with the same numbers, in every language and in two modes: direct answers and step-by-step reasoning. See not only whether the answer is right but how the model got there: does its reasoning finish, loop, run out of budget or drift out of the prompt’s language?</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#run">Run the reasoning suite</a>
+            <a class="button quiet" href="#method">How it is scored <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="pilot-note"><strong>v0.1 public development set.</strong> Twenty-four problems per language keep the suite lightweight. Thirty-five generated language packs remain explicitly marked for native review before leaderboard use.</p>
+        </div>
+        <div class="atlas" aria-label="EUROPA multilingual reasoning matrix illustration">
+          <div class="atlas-topline"><span>REASONING MATRIX</span><span>36 × 24</span></div>
+          <div class="atlas-grid" aria-hidden="true">
+            <span class="cell a1"></span><span class="cell a2"></span><span class="cell a3"></span><span class="cell a4"></span>
+            <span class="cell a5"></span><span class="cell a6"></span><span class="cell a7"></span><span class="cell a8"></span>
+            <span class="cell a9"></span><span class="cell a10"></span><span class="cell a11"></span><span class="cell a12"></span>
+            <span class="cell a13"></span><span class="cell a14"></span><span class="cell a15"></span><span class="cell a16"></span>
+          </div>
+          <div class="atlas-axis"><span>LANGUAGE</span><span>PROBLEM →</span></div>
+          <div class="atlas-caption">
+            <strong>24 problems.<br>36 languages.</strong>
+            <p>See exactly where a model’s reasoning breaks.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Pilot suite statistics">
+        <div><strong data-stat="items">864</strong><span>parallel reasoning items</span></div>
+        <div><strong data-stat="languages">36</strong><span>target languages</span></div>
+        <div><strong data-stat="templates">24</strong><span>problems per language</span></div>
+        <div><strong data-stat="domains">4</strong><span>reasoning domains</span></div>
+      </section>
+
+      <section class="section language-section" id="languages">
+        <div class="section-heading">
+          <p class="kicker">01 / LANGUAGES</p>
+          <div>
+            <h2>36 languages.<br>The same 24 problems.</h2>
+            <p>EUROPA Reasoning covers all 36 languages prioritized by OpenEuroLLM. Each one gets the same problems with identical numbers, so a gap between languages is a reasoning gap, not a difficulty gap. Numbers come from a seeded generator, and a fresh seed rebuilds an unseen variant to check for memorization.</p>
+          </div>
+        </div>
+        <div class="review-banner"><strong>Review status is data.</strong><span>English is the authored source pack. Every generated translation carries its model, decoding protocol and review state until a native speaker approves it.</span></div>
+        <div class="language-grid" id="language-grid" aria-live="polite"></div>
+        <p class="source-note">Canonical scope: <a href="https://github.com/OpenEuroLLM/training-data-catalogue/tree/main/languages">OpenEuroLLM training-data catalogue ↗</a></p>
+      </section>
+
+      <section class="section map-section" id="map">
+        <div class="section-heading">
+          <p class="kicker">02 / REASONING MAP</p>
+          <div>
+            <h2>Reasoning is not one skill.</h2>
+            <p>A model can do arithmetic yet fall for an intuitive trap, follow a rule yet invent an answer the data does not determine, or reach the right number with an argument that would not convince anyone. EUROPA keeps those apart.</p>
+          </div>
+        </div>
+        <div class="domain-grid" id="domain-grid" aria-live="polite">
+          <article class="domain-card loading"><span>01</span><h3>Loading reasoning map…</h3></article>
+        </div>
+        <div class="task-band"><p>Three response forms</p><div id="task-types"></div></div>
+      </section>
+
+      <section class="section method-section" id="method">
+        <div class="section-heading inverse">
+          <p class="kicker">03 / METHOD</p>
+          <div>
+            <h2>Right answers.<br>Visible process.</h2>
+            <p>EUROPA scores boxed final answers deterministically, judges open explanations with a named, revision-pinned LLM judge, and reports how each answer was reached. An unfinished reasoning trace earns nothing, however promising it looked. <a class="method-jump" href="#method-explainer">Read the short explanation ↓</a></p>
+          </div>
+        </div>
+        <div class="method-layout">
+          <ol class="method-list" id="method-list">
+            <li><span>01</span><div><strong>Same numbers everywhere</strong><p>Seeded parameters give every language the identical problem; gold answers are computed in code, never translated.</p></div></li>
+            <li><span>02</span><div><strong>Two modes per model</strong><p>Each model runs with thinking off and with thinking on, with a separate reasoning budget, on the same items.</p></div></li>
+            <li><span>03</span><div><strong>Score the final answer only</strong><p>The last <code>\boxed{}</code> after a closed trace is graded; an unfinished trace is no answer.</p></div></li>
+            <li><span>04</span><div><strong>Measure the process</strong><p>Trace closure, loops, budget exhaustion, reasoning length and trace script are reported next to accuracy.</p></div></li>
+            <li><span>05</span><div><strong>Gate wrong explanations</strong><p>An independent pinned judge scores open answers; correctness is a critical dimension that fluent prose cannot average away.</p></div></li>
+          </ol>
+          <aside class="contrast-card">
+            <p class="small-label">ONE ITEM, TWO MODES</p>
+            <div class="pair-row"><span class="pair-icon base">01</span><div><strong>Default mode</strong><p>Direct answer: “The ball costs \boxed{15} cents.”</p></div><b class="score-dot good">RIGHT</b></div>
+            <div class="pair-link"><span></span><i>same problem, reasoning on</i><span></span></div>
+            <div class="pair-row"><span class="pair-icon pressure">02</span><div><strong>Reasoning mode</strong><p>The trace re-checks the same step until the budget runs out; no final answer.</p></div><b class="score-dot">LOOP</b></div>
+            <div class="gap-line"><span>TRACE CLOSURE</span><strong>VISIBLE</strong></div>
+            <p class="card-note">Thinking is not free: a mode that loops or never finishes is reported as such, not hidden in an average.</p>
+          </aside>
+        </div>
+        <div class="method-explainer" id="method-explainer" aria-labelledby="method-explainer-title">
+          <div class="method-explainer-heading">
+            <p class="small-label">THE SHORT VERSION</p>
+            <h3 id="method-explainer-title">What does it test, and how?</h3>
+          </div>
+          <div class="method-explainer-grid">
+            <div><h4>The test</h4><p>Each model answers 24 problems in each of 36 languages: multi-step arithmetic, logic puzzles, classic traps, missing information, base rates and five short explanations, once in default mode and once with reasoning on.</p></div>
+            <div><h4>The tooling</h4><p>The <a href="https://github.com/BirgerMoell/europa-reasoning">open-source Python harness</a>, adapted from <a href="https://github.com/BirgerMoell/europa-eval">EUROPA Eval</a> and <a href="https://github.com/BirgerMoell/europa-alignment">EUROPA Alignment</a>, runs against hosted APIs, Ollama or local Transformers. It keeps the reasoning trace apart from the final answer, saves the pinned model, judge and decoding protocols, and computes process metrics for every item.</p></div>
+            <div><h4>The judgment</h4><p>Nineteen items per language are scored automatically from <code>\boxed{}</code>. Five open explanations go to a separate LLM judge, which scores named criteria from 0–4 and gives a short reason; a failed correctness criterion caps the item score. Published runs use a pinned <code>gemma4:31b</code> judge via Ollama.</p></div>
+          </div>
+          <p class="method-explainer-limit">This is a public text-only pilot of short, school-level problems, not a definitive leaderboard. Thirty-five language packs still need native review, and automated judgments need human calibration. <a href="https://github.com/BirgerMoell/europa-reasoning/blob/main/docs/METHODOLOGY.md">Read the full methodology <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </section>
+
+      <section class="section run-section" id="run">
+        <div class="section-heading">
+          <p class="kicker">04 / RUN</p>
+          <div>
+            <h2>One suite. Your endpoint.</h2>
+            <p>The dependency-free core talks to hosted APIs and Ollama’s native chat endpoint. Transformers is an optional direct backend. Filter one language for diagnostics or run all 864 items, in both modes, for comparable evidence.</p>
+          </div>
+        </div>
+        <div class="runner">
+          <div class="runner-tabs" role="tablist" aria-label="Run examples">
+            <button role="tab" aria-selected="true" data-tab="api">Hosted API</button>
+            <button role="tab" aria-selected="false" data-tab="endpoint">Ollama / local</button>
+            <button role="tab" aria-selected="false" data-tab="hf">Transformers</button>
+          </div>
+          <div class="code-window">
+            <div class="window-bar"><span></span><span></span><span></span><button id="copy-command" type="button">Copy</button></div>
+            <pre id="command-api" class="command active"><code><span class="dim">export</span> OPENAI_API_KEY=<span class="yellow">"…"</span>
+europa-reasoning run \
+  --backend openai-compatible \
+  --base-url https://api.openai.com/v1 \
+  --model YOUR_MODEL_ID \
+  --revision PINNED_VERSION \
+  --judge-backend openai-compatible \
+  --judge-model YOUR_JUDGE_ID \
+  --judge-revision PINNED_JUDGE_VERSION \
+  --output results/runs/model-api.json</code></pre>
+            <pre id="command-endpoint" class="command"><code>europa-reasoning run \
+  --backend ollama \
+  --model gemma4:31b \
+  --revision OLLAMA_MODEL_DIGEST \
+  --language swe \
+  --diagnostic \
+  --output results/runs/gemma-swe.json</code></pre>
+            <pre id="command-hf" class="command"><code><span class="dim">python3 -m pip install -e</span> <span class="yellow">'.[local]'</span>
+europa-reasoning run \
+  --backend huggingface \
+  --model /path/to/checkpoint \
+  --revision CHECKPOINT_SHA \
+  --think --reasoning-tokens 8192 \
+  --judge-backend ollama \
+  --judge-model YOUR_INDEPENDENT_JUDGE \
+  --judge-revision JUDGE_DIGEST \
+  --output results/runs/model-hf.json</code></pre>
+          </div>
+          <div class="runner-foot"><span><b>↻</b> Resumable after every item</span><span><b>⌁</b> API keys never enter artifacts</span><span><b>◇</b> Raw answers retained</span></div>
+        </div>
+      </section>
+
+      <section class="section results-section" id="results">
+        <div class="section-heading">
+          <p class="kicker">05 / EVIDENCE</p>
+          <div>
+            <h2>Results, with their caveats attached.</h2>
+            <p>The page accepts only complete, non-diagnostic runs with independent pinned target and judge revisions. Open any run to filter by language and inspect the problem, the final answer, its process metrics, critical gates and the named judge’s rationale.</p>
+          </div>
+        </div>
+        <div id="results-view" class="results-empty" aria-live="polite">
+          <span class="empty-glyph" aria-hidden="true">∅</span>
+          <div><h3>No reviewed full-suite runs yet.</h3><p>The harness is ready. The first contribution should be a reproducible 864-item baseline with independent, pinned target and judge revisions.</p></div>
+          <a class="button quiet" href="https://github.com/BirgerMoell/europa-reasoning/blob/main/CONTRIBUTING.md">Submit a run</a>
+        </div>
+        <div id="deep-dive" class="deep-dive" aria-live="polite" hidden>
+          <div class="deep-heading"><div><p class="small-label">REASONING EVIDENCE EXPLORER</p><h3>From aggregate score to actual evidence.</h3></div><p>Model outputs are untrusted evidence. Reasoning traces are not published; final answers, process metrics, critical gates and the named judge’s concise rationale are.</p></div>
+          <div class="deep-controls">
+            <label>Model<select id="detail-model" aria-label="Select model"></select></label>
+            <label>Language<select id="detail-language" aria-label="Filter by language"><option value="all">All languages</option></select></label>
+            <label>Domain<select id="detail-domain" aria-label="Filter by domain"><option value="all">All domains</option></select></label>
+            <label>View<select id="detail-filter" aria-label="Filter answers"><option value="all">All answers</option><option value="attention">Needs attention</option><option value="judged">LLM-judged</option><option value="deterministic">Deterministic</option></select></label>
+          </div>
+          <div class="deep-language-summary" id="deep-language-summary"></div>
+          <div class="deep-protocol" id="deep-protocol"></div>
+          <div class="deep-caveats" id="deep-caveats"></div>
+          <div class="deep-layout"><div class="item-list" id="detail-items" role="list" aria-label="Evaluation items"></div><article class="answer-detail" id="detail-answer"></article></div>
+        </div>
+      </section>
+
+      <section class="section ecosystem-section" id="ecosystem">
+        <div class="section-heading"><p class="kicker">06 / FOUNDATIONS</p><div><h2>Grounded in public reasoning research.</h2><p>EUROPA Reasoning builds on GSM8K, MGSM, GSM-Symbolic and work on overthinking and language mixing in reasoning models, while contributing a lightweight parallel layer for OpenEuroLLM languages.</p></div></div>
+        <div class="integration-list" id="integration-list"><a href="https://github.com/OpenEuroLLM"><span>01</span><strong>OpenEuroLLM</strong><p>Open multilingual foundation models for Europe</p><i>↗</i></a></div>
+      </section>
+
+      <section class="call-to-action">
+        <p class="kicker">35 LANGUAGE PACKS NEED NATIVE REVIEW</p>
+        <h2>Help make multilingual reasoning harder to bluff—and easier to inspect.</h2>
+        <div><a class="button light" href="https://github.com/BirgerMoell/europa-reasoning/blob/main/CONTRIBUTING.md">Review a language pack</a><a href="https://github.com/BirgerMoell/europa-reasoning/blob/main/docs/METHODOLOGY.md" class="text-link">Read the methodology <span aria-hidden="true">→</span></a></div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>EUROPA <b>REASONING</b></span></a>
+      <p>Open code under Apache-2.0 · Original pilot data under CC0-1.0</p>
+      <div><a href="https://github.com/BirgerMoell/europa-reasoning">GitHub</a><a href="https://github.com/BirgerMoell/europa-reasoning/blob/main/docs/METHODOLOGY.md">Methodology</a><a href="https://github.com/BirgerMoell/europa-reasoning/blob/main/docs/SOURCES.md">Sources</a></div>
+    </footer>
+    <script src="data/site-data.js?v=20261022-1"></script>
+    <script src="app.js?v=20261022-1" defer></script>
+  </body>
+</html>

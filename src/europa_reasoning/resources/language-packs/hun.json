@@ -1,0 +1,90 @@
+{
+  "language": {
+    "code": "hun",
+    "bcp47": "hu",
+    "name": "Hungarian",
+    "autonym": "magyar",
+    "group": "eu_official",
+    "scripts": [
+      "Latn"
+    ],
+    "variants": [
+      "hun_Latn"
+    ]
+  },
+  "review_status": "machine_translated",
+  "translation_generator": "gemma4:31b",
+  "translation_model_revision": "6316f0629137b426c9d9b853ffc4c8209589f30ee39aebede6285096c0ff47e7",
+  "translation_protocol": {
+    "temperature": 0,
+    "seed": 45,
+    "think": false,
+    "latex_masked": true,
+    "repaired_keys": [
+      "grade_prompt"
+    ],
+    "repair_seeds": "101-105"
+  },
+  "strings": {
+    "numeric_instruction": "Oldasd meg a feladatot. A végeredményt egyetlen számként írd a \\boxed{} közé, például \\boxed{42}. A számot egységek és ezresváló nélkül add meg.",
+    "choice_instruction": "Válaszd ki a helyes opciót. A válasz legyen csak a helyes opció betűje a \\boxed{} közé írva, például \\boxed{B}.",
+    "shopping_prompt": "{name1} {a} darab füzetet vásárol, amelyek egyenként {p} euróba kerülnek, valamint {b} darab tollat, amelyek egyenként {q} euróba kerülnek. Egy {note} eurós bankjeggyel fizet. Hány euró visszajárást kap {name1}?",
+    "pumps_prompt": "Az A szivattyú egyedül {a} óra alatt képes megtölteni egy üres tartályt. A B szivattyú egyedül {b} óra alatt töltheti fel ugyanazt a tartályt. Mennyi időbe tellik az üres tartály feltöltése, ha mindkét szivattyú egyszerre működik?",
+    "train_speed_prompt": "Egy vonat egyenletesen {d} kilométert tesz meg {m} perc alatt. Mennyi a sebessége kilométer/óraban?",
+    "night_shift_prompt": "Egy éjszakai műszak {start}-kor kezdődik ésMásnap {end}-kor ér véget. Hány percig tart a műszak?",
+    "grade_prompt": "Egy kurzusban a projekt a végszámlálás {w1}%-át, a vizsga pedig a maradék {w2}%-át adja. {name1} a projektből 100-ból {s1} pontot szerzett. Mennyi a legalacsonyabb vizsgapont 100-ból, amelynek köszönhetően {name1} végszámlálása legalább {t} lesz?",
+    "handshakes_prompt": "Egy találkozón a {n} résztvevő mindegyike pontosan egyszer megfogozza mindenki más kezét. Összesen hány kézfogás történik?",
+    "sequence_prompt": "Határozd meg a szabályt, és add meg a következő számot a sorozatban: {seq}, …",
+    "walk_prompt": "{name1} {a} métert sétál északra, majd {b} métert keletre, végül {c} métert délre. Mennyi a távolság egyenes vonalban {name1} és a kiindulási pont között?",
+    "racket_prompt": "Egy ütő és egy labda együtt {total} centbe kerül. Az ütő {diff} centtel drágább, mint a labda. Mennyibe kerül a labda centben?",
+    "price_change_prompt": "Egy dzseki ára {p} euró. Az árat először {x}%-kal növelik, majd az új árat {x}%-cal csökkentik. Mennyi lesz a végső ár euróban?",
+    "bakery_prompt": "Egy pékség hétfőn {a} darab kenyeret árudott el. Kedd több kenyeret árudott el, mint hétfőn, szerdán pedig {b} darabot. Hány kenyeret árudott el a pékség kedden?",
+    "bakery_option_sum": "{sum} kenyér",
+    "bakery_option_next": "{next} kenyér",
+    "bakery_option_diff": "{diff} kenyér",
+    "bakery_option_unknown": "A megadott információk alapján nem határozható meg.",
+    "correlation_prompt": "Egy tengerparti városban az ice-cream (fagylalt) eladásának legmagasabb értékei ugyanazokban a hónapokban vannak, amelyekben a legtöbb fulladáseset történik. Melyik következtetés kapja a legjobb támogatást ebből a megfigyelésből?",
+    "correlation_option_cause": "A fagylalt fogyasztása okozza a fulladáseseteket.",
+    "correlation_option_ban": "A fagylalteladás betiltása csökkentené a fulladásesetek számát.",
+    "correlation_option_confounder": "Egy harmadik tényező, például a meleg idő, növelheti egyszerre a fagylalteladást és az úszás gyakoriságını.",
+    "correlation_option_reverse": "A fulladásesetek arra késztetik az embereket, hogy több fagylaltot vegyenek.",
+    "base_rate_prompt": "Egy betegség minden 1000 ember közül {p} személyt érinti. Egy teszt minden fertőzöttet kiszűri, de az egészséges emberek {f}%-ánál is pozitív eredményt ad. Egy véletlenszerűen választott személy tesztje pozitív. Körülbelül mekkora a valószínűsége annak, hogy az illető valóban beteg?",
+    "base_rate_option": "Körülbelül {value}%",
+    "knights_prompt": "Egy szigeten a lovagok mindig igazat mondanak, a csalók pedig mindig hazudnak. Minden lakó vagy lovag, vagy csalók. {name1} azt mondja: \"Mindketten csalók vagyunk.\" {name2} nem mond semmit. Kik ők {name1} és {name2}?",
+    "knights_option_both_knights": "Mindketten lovagok.",
+    "knights_option_both_knaves": "Mindketten csalók.",
+    "knights_option_first_knight": "{name1} lovag, {name2} pedig csalók.",
+    "knights_option_first_knave": "{name1} csalók, {name2} pedig lovag.",
+    "race_prompt": "Öt futó, {n1}, {n2}, {n3}, {n4} és {n5}, befejezi egy versenyt egyenlőség nélkül. {n1} {n2} előtt ér célba. {n2} {n4} előtt ér célba. {n3} közvetlenül {n4} után ér célba. {n5} utolsó helyen érkezik. Ki érkezik harmadik helyen?",
+    "weekday_prompt": "Ma {today}. Milyen nap lesz hétnapról {n} nap múttra?",
+    "weekdays": [
+      "hétfő",
+      "kedd",
+      "szerda",
+      "csütörtök",
+      "péntek",
+      "szombat",
+      "vasárnap"
+    ],
+    "conditional_prompt": "Ha a riasztás bekapcsolva van, akkor az irányítópulton lévő lámpa zöld. Az irányítópulton lévő lámpa nem zöld. Mi következik egyedülmente e két állításból?",
+    "conditional_option_on": "A riasztás bekapcsolva van.",
+    "conditional_option_off": "A riasztás nincs bekapcsolva.",
+    "conditional_option_broken": "Az irányítópulton lévő lámpa elromlott.",
+    "conditional_option_nothing": "A riasztással kapcsolatban semmi nem következthető.",
+    "seating_prompt": "Négy barát, {n1}, {n2}, {n3} és {n4}, egy négyzet alakú asztal körül ülnek, minden oldalra egy ember, mindnapi közé nézve. {n1} közvetlenül {n2}-vel szemben ül. {n3} közvetlenül {n1} mellett, balra ül. Ki ül közvetlenül {n1} jobb oldalán?",
+    "syllogism_prompt": "Tegyük fel, hogy a következő két állítás igaz: Minden {w1} {w2}. Néhány {w2} pedig {w3}. Csak ezekre az állításokra alapozva, kötelezően igaz, hogy néhány {w1} {w3}?",
+    "syllogism_option_yes": "Igen, kötelezően igaz.",
+    "syllogism_option_no": "Nem, nem következik belőle szükségszerűen.",
+    "syllogism_option_all": "Igen, sőt, minden {w1} {w3}.",
+    "average_speed_prompt": "Egy autó egy városból egy városba {d} kilométert tesz meg {v1} km/h sebességgel, majd ugyanazon az úton {v2} km/h sebességgel visszatér. Egy diák azt mondja: \"Az egész út átlagsebessége {wrong} km/h.\" Igazat mond a diák? Magyarázd be a reasoning-et és add meg a helyes átlagsebességet. Válaszolj maximum 150 szóban.",
+    "average_speed_reference": "A diák téved: az átlagsebesség a teljes távolság osztva a teljes idővel, nem pedig a két sebesség számtani átlagja. Az út oda {t1} órát, vissza pedig {t2} órát vesz igénybe, tehát {total_time} óra {total_distance} kilométerre, így az átlagsebesség {answer} km/h. A lassabb szakasz hosszabb ideig tart, ezért nagyobb a súlya.",
+    "fermi_prompt": "Körülbelül becsüld meg, hogy egy {k} fős háztartás éventre hány liter vizet használ zuhanyzáshoz. Fogalmazd meg a feltételezéseidet és mutasd be a számítást néhány rövid lépésben. Válaszolj maximum 150 szóban.",
+    "fermi_reference": "Egy tipikus válasz azt feltételezi, hogy személyenként naponta egy zuhanyzás, amely 5-10 percig tart, percenként 6-12 liter vízzel, azaz körülbelül 30-120 liter zuhanyzonként. {k} emberre, 365 napon keresztül ez éventre {low} és {high} liter közötti értéket ad; minden olyan becslés elfogadható, amely ebben a tartományban yerül, explicit, plausibilis feltételezésekkel és helyes aritmetikával.",
+    "parity_prompt": "Magyarázd el, miért két páratlan egész szám összege mindig páros. Adj egy általános érvelést, amely minden páratlan számra érvényes, ne csak példákat. Válaszolj maximum 120 szóban.",
+    "parity_reference": "Bármely páratlan szám felírható 2a + 1 alakban, egy másik pedig 2b + 1 alakban, ahol a és b egész számok. Az összegejük 2a + 2b + 2 = 2(a + b + 1), ami 2-vel osztható, így páros. Pusztán példák ellenőrzése nem bizonyítja az állítást minden páratlan számra.",
+    "risk_prompt": "Egy hirdetés azt állítja: \"Kiegészítőnk {rel}%-kal csökkenti egy bizonyos betegség kockázatát!\" A mögötte álló tanulmányban a betegség 1000 ember közül {a} esetben fordult elő a kiegészítő nélkül, és 1000 ember közül {b} esetben fordult elő vele. Tévesztő jellegű a hirdetés? Magyarázd a relatív és az abszolút kockázat segítségével. Válaszolj maximum 150 szóban.",
+    "risk_reference": "A relatív csökkenés ({a} − {b}) / {a} = {rel}%, tehát a szám technikailag helyes, de az abszolút csökkenés csak {abs_diff} ember 1000 közül ({abs_pct} százalékpont): körülbelül {nnt} embernek kell bevennie a kiegészítőt, hogy egy személy elkerülje a betegséget. Csak a relatív szám bemutatása nagyra tűteti a kis abszolút előnyt, így a hirdetés tévesztő.",
+    "plans_prompt": "Az A telefonszerződés havonta {fa} euróba kerül, plusz percenként {ca} cent hívási díj. A B telefonszerződés havonta {fb} euró, korlátlan hívásokkal. {name1} havonta körülbelül {m} percet beszél telefonon. Melyik csomag olcsóbb {name1}-nek, és havonta hány eurót spórol vele? Hány perc felett lesz a B csomag olcsóbb, mint az A? Mutasd röviden a számítást. Válaszolj maximum 150 szóban.",
+    "plans_reference": "Az A csomag költsége {fa} + {m} × {ca_euro} = {cost_a} euró havonta, a B csomag pedig {fb} euró, így a {cheaper} csomag olcsóbb {saving} euróval havonta. A csomagok {fb} − {fa}) / {ca_euro} = {breakeven} percnél egyenlő áron vannak, és havonta {breakeven} perc felett a B csomag olcsóbb."
+  }
+}

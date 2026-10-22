@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://birgermoell.github.io/europa-reasoning/schemas/item.schema.json",
+  "title": "EUROPA Reasoning item",
+  "type": "object",
+  "required": [
+    "id",
+    "suite_id",
+    "suite_version",
+    "split",
+    "language",
+    "script",
+    "template_id",
+    "domain",
+    "capability",
+    "task_type",
+    "prompt",
+    "gold",
+    "scoring",
+    "source"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+    "suite_id": {"type": "string"},
+    "suite_version": {"type": "string"},
+    "split": {"enum": ["dev", "validation", "test_public", "test_private"]},
+    "language": {"type": "string", "pattern": "^[a-z]{3}$"},
+    "script": {"type": "string", "pattern": "^[A-Z][a-z]{3}$"},
+    "template_id": {"type": "string"},
+    "domain": {"type": "string"},
+    "capability": {"type": "string"},
+    "task_type": {"type": "string"},
+    "context": {"type": "string"},
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {"enum": ["user", "assistant"]},
+          "content": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "prompt": {"type": "string", "minLength": 1},
+    "options": {"type": "array", "items": {"type": "string"}},
+    "gold": {
+      "type": "object",
+      "properties": {
+        "accepted_values": {
+          "type": "array",
+          "description": "Complete alternative typed values accepted by deterministic scoring."
+        }
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "choice",
+            "exact",
+            "contains_all",
+            "numeric",
+            "json_exact",
+            "constraints",
+            "rubric"
+          ]
+        },
+        "critical_dimensions": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0, "maximum": 4}
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "title", "url", "license"],
+      "properties": {
+        "kind": {"type": "string"},
+        "title": {"type": "string"},
+        "url": {"type": "string"},
+        "license": {"type": "string"},
+        "accessed": {"type": "string"}
+      }
+    },
+    "pair_id": {"type": "string"},
+    "variant": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "max_tokens": {"type": "integer", "minimum": 1},
+    "review_status": {"enum": ["machine_translated", "native_reviewed", "source_native"]},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": true
+}
