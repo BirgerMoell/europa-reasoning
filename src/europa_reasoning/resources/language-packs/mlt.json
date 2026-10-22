@@ -28,7 +28,7 @@
     "pumps_prompt": "Il-Pump A tista' tmala' tanki vojot waħedha f' {a} sigħat. Il-Pump B tista' tmala' l-istess tanki waħedha f' {b} sigħat. Kemm sigħat jieħu biex jimlu t-tanki vojot meta ż-żewġ pumps jaħdmu flimkien?",
     "train_speed_prompt": "Trena tivvjaġġa {d} kilometri f' {m} minuti b' veloċità kostanti. Kemm hija l-veloċità tagħha fil-kilometri per ora?",
     "night_shift_prompt": "Shift tal-lejl jibda fl-{start} u jispiċċa fl-{end} għada bihar. Kemm minuti jdum is-shift?",
-    "grade_prompt": "F'kors, il-proġett jgħodna {w1}% tal-grad finali u l-eżami l-bqija ta' {w2}%. {name1} ġib {s1} fuq 100 fil-proġett. Qual huwa l-aktar punteġġต่ำ ta' eżami fuq 100 li jagħti lil {name1} grad finali ta' mill-inqas {t}?",
+    "grade_prompt": "F'kors, il-proġett jgħodna {w1}% tal-grad finali u l-eżami l-bqija ta' {w2}%. {name1} ġib {s1} fuq 100 fil-proġett. X'inhu l-inqas punteġġ tal-eżami fuq 100 li jagħti lil {name1} grad finali ta' mill-inqas {t}?",
     "handshakes_prompt": "F'laqgħa, kull wieħed mill-{n} partiċipanti jsalami eżattament darba lill-kull partiċipante ieħor. Kemm salamijiet isiru kollha ma' kollha?",
     "sequence_prompt": "Isib ir-regola u agħti n-numru li jmiss fis-sekwenza: {seq}, …",
     "walk_prompt": "{name1} jimxi {a} metri lejn it-tramunt, imbagħad {b} metri lejn il-est, u mbagħad {c} metri lejn it-tnuba. Kemm metri jinsab {name1} issa mill-punt tal-bidu, imkejjel f'linja dritta?",
@@ -68,19 +68,35 @@
     "conditional_option_broken": "Id-dawl fuq il-pann tal-kontroll huwa ħasir.",
     "conditional_option_nothing": "Xejn ma jista' jiġi konkluż dwar l-allarm.",
     "seating_prompt": "Erba' ħbieb, {n1}, {n2}, {n3} u {n4}, joqgħdu madwar mejda kwadrata, wieħed fuq kull naħa, kollha jħarsu lejn iċ-ċentru. {n1} joqgħod eżatt opposite {n2}. {n3} joqgħod immedjatament fuq ix-xellug ta' {n1}. Min joqgħod immedjatament fuq id-dritt ta' {n1}?",
-    "syllogism_prompt": "Assume li dawn iż-żewġ stqarrijiet huma veri: Kollha {w1} huma {w2}. Xi ħaġa {w2} huma {w3}. Ibbażat biss fuq dawn is-stqarrijiet, inkun لازم ikun veru li xi ħaġa {w1} huma {w3}?",
-    "syllogism_option_yes": "Iva, inkun لازم ikun veru.",
+    "syllogism_prompt": "Assumi li dawn iż-żewġ stqarrijiet huma veri: Kollha {w1} huma {w2}. Xi ħaġa {w2} huma {w3}. Ibbażat biss fuq dawn is-stqarrijiet, neċessarjament ikun veru li xi ħaġa {w1} huma {w3}?",
+    "syllogism_option_yes": "Iva, neċessarjament ikun veru.",
     "syllogism_option_no": "Le, ma jsegwi xejn b'mod neċessjarju.",
     "syllogism_option_all": "Iva, u fil-fatt kollha {w1} huma {w3}.",
     "average_speed_prompt": "Kar jiscutri {d} kilometri minn belt għal żdaqqa b' {v1} kilometri per ora u jirritorna fuq l-istess triq b' {v2} kilometri per ora. Student jgħid: \"Il-veloċità medja għat-tripp kollu hija {wrong} kilometri per ora.\" L-istudent huwa ġust? Spjegga r-raġunament u agħti l-veloċità medja korretta. Twieġba f'max 150 kliem.",
-    "average_speed_reference": "L-istudent huwa żbal: il-veloċità medja hija d-distanza totali mqسومa għat-tajjid totali, mhux immedja taż-żewġ veloċitajiet. It-tripp jieħu {t1} sigħat lejnhekk u {t2} sigħat lura, {total_time} sigħat għal {total_distance} kilometri,所以 il-veloċità medja hija {answer} kilometri per ora. Il-parti aktar slowest tdum aktar u għalhekk iżna aktar.",
-    "fermi_prompt": "Stima approssimament kemm litru ta' ilma tuża dar ta' {k} persuni għall-doċċ f'sena waħda. Iddikura l-assunzioni tiegħek u turi l-kalkolu f'ftit pass짧i. Twieġba f'max 150 kliem.",
+    "average_speed_reference": "L-istudent huwa żbal: il-veloċità medja hija d-distanza totali maqsuma bil-ħin totali, mhux immedja taż-żewġ veloċitajiet. It-tripp jieħu {t1} sigħat lejnhekk u {t2} sigħat lura, {total_time} sigħat għal {total_distance} kilometri, għalhekk il-veloċità medja hija {answer} kilometri per ora. Il-parti aktar slowest tdum aktar u għalhekk iżna aktar.",
+    "fermi_prompt": "Stima approssimament kemm litru ta' ilma tuża dar ta' {k} persuni għall-doċċ f'sena waħda. Iddikura l-assunzioni tiegħek u turi l-kalkolu f'ftit passi qosra. Twieġba f'max 150 kliem.",
     "fermi_reference": "Twieġba tipika tassumi madwar doċċ wieħed per persuna per jum ta' 5 għal 10 minuti b' 6 għal 12 litru per minuta, jiżgur approssimament 30 għal 120 litru per doċċ. Għal {k} persuni fuq 365 jiem, dan jagħti ordni ta' {low} għal {high} litru per sena; kull stima f'dak it-traċċ b'assunzioni espliċiti u plauzibbli u aritmetika korretta hija tajba.",
-    "parity_prompt": "Spjegga għaliex is-somma ta' żewġ numri sħiħa 홀수 (odd) hija dejjem pari. Agħti argument ġenerali li jaħdem għal ĉi المحلي numri odd, mhux biss eżempji. Twieġba f'max 120 kliem.",
-    "parity_reference": "Kull numru odd jista' jikteb bħala 2a + 1 u ieħor bħala 2b + 1 għal numri sħiħa a u b. Is-somma tagħhom hija 2a + 2b + 2 = 2(a + b + 1), li hija multiplu ta' 2 u għalhekk pari. L-iċċekkjar ta' eżempji biss ma jippruvax l-istqarrija għal ĉi المحلي numri odd.",
+    "parity_prompt": "Spjegga għaliex is-somma ta' żewġ numri sħaħ fard hija dejjem pari. Agħti argument ġenerali li jaħdem għan-numri fard kollha, mhux biss eżempji. Twieġba f'max 120 kliem.",
+    "parity_reference": "Kull numru fard jista' jikteb bħala 2a + 1 u ieħor bħala 2b + 1 għal numri sħiħa a u b. Is-somma tagħhom hija 2a + 2b + 2 = 2(a + b + 1), li hija multiplu ta' 2 u għalhekk pari. L-iċċekkjar ta' eżempji biss ma jippruvax l-istqarrija għan-numri fard kollha.",
     "risk_prompt": "Riklam jgħid: \"Is-supplement tagħna jnaqqas ir-riskju tiegħek ta' marda certa b' {rel}%!\" Fl-istudju warajh, l-marda kienet okkorret f' {a} minn kull 1000 persuna mingħir is-supplement u f' {b} minn kull 1000 persuna miegħu. Ir-riklam huwa msajjal? Spjegga billi tużaż-riskju relattiv u assolutu. Twieġba f'max 150 kliem.",
-    "risk_reference": "Ir-riduzzjoni relattiva hija ({a} − {b}) / {a} = {rel}%,所以 in-numru huwa teknikament korrett, iżda r-riduzzjoni assoluta hija biss {abs_diff} f' 1000 persuna ({abs_pct} punti ta' perċentaġġ): madwar {nnt} persuni għandhom jieħdu s-supplement biex persuna waħda tevita l-marda. Il-preżentazzjoni ta' figura relattiva biss tagħmel benefiċċju assolutu żgħir jidher kbir,所以 ir-riklam huwa msajjal.",
+    "risk_reference": "Ir-riduzzjoni relattiva hija ({a} − {b}) / {a} = {rel}%, għalhekk in-numru huwa teknikament korrett, iżda r-riduzzjoni assoluta hija biss {abs_diff} f' 1000 persuna ({abs_pct} punti ta' perċentaġġ): madwar {nnt} persuni għandhom jieħdu s-supplement biex persuna waħda tevita l-marda. Il-preżentazzjoni ta' figura relattiva biss tagħmel benefiċċju assolutu żgħir jidher kbir,għalhekk ir-riklam huwa msajjal.",
     "plans_prompt": "Pjan tat-telefown A jiswa {fa} ewro per xahar plus {ca} ċenteżimi per minuta ta' żvilji. Pjan tat-telefown B jiswa {fb} ewro per xahar b' żvilji illimitati. {name1} jagħmel madwar {m} minuti ta' żvilji per xahar. Liema pjan huwa cheapest għal {name1}, u b' kemm ewro per xahar? Fuq kemm minuti per xahar isir il-pjan B cheapest mill-pjan A? Wuri l-kalkolu fil-qosor. Twieġba f'max 150 kliem.",
-    "plans_reference": "Il-Pjan A jiswa {fa} + {m} × {ca_euro} = {cost_a} ewro per xahar u l-pjan B jiswa {fb} ewro,所以 il-pjan {cheaper} huwa cheapest b' {saving} ewro per xahar. Il-pjanjijiet jiswew l-istess f' ({fb} − {fa}) / {ca_euro} = {breakeven} minuti, u fuq {breakeven} minuti per xahar il-pjan B huwa cheapest."
+    "plans_reference": "Il-Pjan A jiswa {fa} + {m} × {ca_euro} = {cost_a} ewro per xahar u l-pjan B jiswa {fb} ewro, għalhekk il-pjan {cheaper} huwa l-irħas b' {saving} ewro per xahar. Il-pjanjijiet jiswew l-istess f' ({fb} − {fa}) / {ca_euro} = {breakeven} minuti, u fuq {breakeven} minuti per xahar il-pjan B huwa l-irħas."
+  },
+  "quality_corrections": {
+    "method": "manual_post_edit",
+    "fields": [
+      "average_speed_reference",
+      "fermi_prompt",
+      "grade_prompt",
+      "parity_prompt",
+      "parity_reference",
+      "plans_reference",
+      "risk_reference",
+      "syllogism_option_yes",
+      "syllogism_prompt"
+    ],
+    "date": "2026-10-22",
+    "reason": "Maltese machine translation kept fragments from other scripts (Arabic, Chinese, Thai, Korean) and some English after 8 sampled repair attempts; the fragments were replaced with standard Maltese words (script and terminology fix, not a native review; the Maltese pack needs native review first). Translator output kept a word from another script after 8 sampled repair attempts; replaced it with the target-language word (script fix, not a native review): \"Qual huwa l-aktar punteġġต่ำ ta' eżami\" -> \"X'inhu l-inqas punteġġ tal-eżami\" | syllogism_prompt: 'Assume li' -> 'Assumi li'; 'inkun لازم ikun veru' -> 'neċessarjament ikun veru' | syllogism_option_yes: 'Iva, inkun لازم ikun veru.' -> 'Iva, neċessarjament ikun veru.' | average_speed_reference: 'mqسومa għat-tajjid totali' -> 'maqsuma bil-ħin totali'; 'kilometri,所以' -> 'kilometri, għalhekk' | fermi_prompt: 'pass짧i' -> 'passi qosra' | parity_prompt: 'numri sħiħa 홀수 (odd)' -> 'numri sħaħ fard'; 'għal ĉi المحلي numri odd' -> 'għan-numri fard kollha' | parity_reference: 'Kull numru odd' -> 'Kull numru fard'; 'għal ĉi المحلي numri odd' -> 'għan-numri fard kollha' | risk_reference: '%,所以' -> '%, għalhekk' | plans_reference: 'ewro,所以' -> 'ewro, għalhekk'; \"huwa cheapest b'\" -> \"huwa l-irħas b'\"; 'il-pjan B huwa cheapest' -> 'il-pjan B huwa l-irħas' | risk_reference: second '所以' -> 'għalhekk'"
   }
 }

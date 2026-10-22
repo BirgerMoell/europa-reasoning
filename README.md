@@ -56,6 +56,11 @@ Version 0.1 is a **translation-review pilot**:
   `machine_translated` until a native speaker reviews them. Placeholders and `\boxed{}` examples are checked after
   translation.
 - 24 items per language are diagnostic, not comprehensive; per-language intervals are wide.
+- Translation quality is uneven. Every pack passed automatic checks (placeholders, `\boxed{}` examples, and no letters
+  from another script, which caught CJK, Hangul, Thai, Arabic and Cyrillic fragments the translator inserted). Three
+  packs carry documented manual script fixes in `quality_corrections` (Slovene, Georgian, Maltese). **Maltese is the
+  weakest pack** and needs native review before its scores are interpreted; meaning errors that keep the right script
+  (for example a wrong adjective) are not caught automatically in any language.
 
 ## Quick start
 

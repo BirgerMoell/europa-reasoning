@@ -75,12 +75,20 @@
     "average_speed_prompt": "Avto vozi {d} kilometrov iz mesta v mesto s hitrostjo {v1} kilometrov na uro in se vrne po isti cesti s hitrostjo {v2} kilometrov na uro. Študent pravi: \"Povprečna hitrost za celotno potovanje je {wrong} kilometrov na uro.\" Ali ima študent prav? Razložite razmišljanje in podajte pravilno povprečno hitrost. Odgovorite v največ 150 besedah.",
     "average_speed_reference": "Študent se moti: povprečna hitrost je skupna razdalja deljena s skupnim časom, ne srednje aritmetično dvoju hitrosti. Potovanje v eno traja {t1} ur in nazaj {t2} ur, torej {total_time} ur za {total_distance} kilometrov, zato je povprečna hitrost {answer} kilometrov na uro. Počasnejši del poti traja dlje in zato ima večjo težo.",
     "fermi_prompt": "Grobo ocenite, koliko litrov vode gospodinjstvo s {k} osebami porabi za tuširanje v enem letu. Navedite svoje predpostavke in izračun pokažite v nekaj kratkih korakih. Odgovorite v največ 150 besedah.",
-    "fermi_reference": "Tipičen odgovor predпоstavlja približno en tuš na osebo na dan, ki traja od 5 do 10 minut s porabo od 6 do 12 litrov na minuto, torej približno 30 do 120 litrov na tuš. Za {k} oseb v 365 dneh to daje vrstitev od {low} do {high} litrov na leto; vsaka ocena v tem razmeju s smislnimi predpostavkami in pravilnim računjenjem je dobra.",
+    "fermi_reference": "Tipičen odgovor predpostavlja približno en tuš na osebo na dan, ki traja od 5 do 10 minut s porabo od 6 do 12 litrov na minuto, torej približno 30 do 120 litrov na tuš. Za {k} oseb v 365 dneh to daje vrstitev od {low} do {high} litrov na leto; vsaka ocena v tem razmeju s smislnimi predpostavkami in pravilnim računjenjem je dobra.",
     "parity_prompt": "Razložite, zakaj je vsota dveh nejonečih celih števil vedno sodej. Podajte splošni argument, ki velja za vsa nejoneča števila, ne samo primere. Odgovorite v največ 120 besedah.",
     "parity_reference": "Vsako nejoneče število lahko zapišemo kot 2a + 1 in drugo kot 2b + 1 za cela števila a in b. Njihova vsota je 2a + 2b + 2 = 2(a + b + 1), kar je količnik števila 2 in zato sodej. Preverjanje samo primerov ne dokazuje trditve za vsa nejoneča števila.",
     "risk_prompt": "Oglas pravi: \"Naš dodatek zmanjša tveganje za določeno bolezen za {rel}%!\" V študiji, na kateri temelji oglas, se je bolezen pojavila pri {a} od 1000 ljudi brez dodatka in pri {b} od 1000 ljudi z dodatkom. Ali je oglas zavajajoč? Razložite z uporabo relativnega in absolutnega tveganja. Odgovorite v največ 150 besedah.",
     "risk_reference": "Relativno zmanjšanje je ({a} − {b}) / {a} = {rel}%, zato je številka tehnično pravilna, vendar je absolutno zmanjšanje le {abs_diff} na 1000 ljudi ({abs_pct} odstotkovih): približno {nnt} ljudi mora jemati dodatek, da ena oseba izogne bolezni. Predstavitev samo relativne vrednosti naredi majhen absolutni koristi velik, zato je oglas zavajajoč.",
     "plans_prompt": "Telefonski paket A stane {fa} evrov na mesec plus {ca} centov na minuto klicanja. Telefonski paket B stane {fb} evrov na mesec z neomejenimi klici. {name1} opravi približno {m} minut klicev na mesec. Kateri paket je cenejši za {name1} in za koliko evrov na mesec? Pri koliko minutah na mesec postane paket B cenejši od paketa A? Izračun na kratko pokažite. Odgovorite v največ 150 besedah.",
     "plans_reference": "Paket A stane {fa} + {m} × {ca_euro} = {cost_a} evrov na mesec in paket B stane {fb} evrov, zato je paket {cheaper} cenejši za {saving} evrov na mesec. Paketa stana isto pri ({fb} − {fa}) / {ca_euro} = {breakeven} minutah, nad {breakeven} minutami na mesec pa je paket B cenejši."
+  },
+  "quality_corrections": {
+    "method": "manual_post_edit",
+    "fields": [
+      "fermi_reference"
+    ],
+    "date": "2026-10-22",
+    "reason": "Translator output kept a word from another script after 8 sampled repair attempts; replaced it with the target-language word (script fix, not a native review): 'predпоstavlja' -> 'predpostavlja'"
   }
 }

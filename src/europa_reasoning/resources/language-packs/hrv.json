@@ -17,15 +17,19 @@
   "translation_model_revision": "6316f0629137b426c9d9b853ffc4c8209589f30ee39aebede6285096c0ff47e7",
   "translation_protocol": {
     "temperature": 0,
-    "seed": 42,
+    "seed": 45,
     "think": false,
-    "latex_masked": true
+    "latex_masked": true,
+    "repaired_keys": [
+      "bakery_option_unknown"
+    ],
+    "repair_seeds": "101-105"
   },
   "strings": {
     "numeric_instruction": "Riješite problem. Završite s konačnim odgovorom kao jednim brojem u \\boxed{}, na primjer \\boxed{42}. Zapišite broj bez jedinica i bez tisućnih separatora.",
     "choice_instruction": "Odaberite točan odgovor. Završite samo s slovom točnog odgovora u \\boxed{}, na primjer \\boxed{B}.",
     "shopping_prompt": "{name1} kupuje {a} bilježnica po {p} eura i {b} olovaka po {q} eura, te plaća novčanicom od {note} eura. Koliko eura kusura dobiva {name1}?",
-    "pumps_prompt": "Pumpa A može sama napuniti prazan spremnik za {a} sati. Pumpa B može napuniti isti spremnik sama za {b} sati. Koliko sati je potrebno za punjenje praznog spremnika kada obje pumpe rade zajedno?",
+    "pumps_prompt": "Pumpa A može sama napuniti prazan spremnik za {a} sati. Pumpa B može napuniti isti spremnik sama za {b} sati. Koliko sati je potrebno za napunjavanje praznog spremnika kada obje pumpe rade zajedno?",
     "train_speed_prompt": "Vlak prelazi {d} kilometara u {m} minuta konstantnom brzinom. Kolika mu je brzina u kilometrima po satu?",
     "night_shift_prompt": "Noćna smjena počinje u {start} i završava u {end} sljedećeg jutra. Koliko minuta traje smjena?",
     "grade_prompt": "U jednom tečaju, projekt vrijedi {w1}% konačne ocjene, a ispit preostalih {w2}%. {name1} je na projektu ostvario/la {s1} od 100 bodova. Koji je najniži rezultat ispita od 100 bodova koji omogućuje da {name1} dobije konačnu ocjenu od najmanje {t}?",
@@ -38,7 +42,7 @@
     "bakery_option_sum": "{sum} kruhova",
     "bakery_option_next": "{next} kruhova",
     "bakery_option_diff": "{diff} kruhova",
-    "bakery_option_unknown": "Ne može se odrediti na temelju给anih informacija.",
+    "bakery_option_unknown": "Na temelju danih informacija to nije moguće odrediti.",
     "correlation_prompt": "U jednom obalnom gradu, mjeseci s najvećom prodajom sladoleda su također mjeseci s najviše slučajeva utapanja. Koji je zaključak najbolje potkrijepljen ovim opažanjem?",
     "correlation_option_cause": "Jedenje sladoleda uzrokuje slučajeve utapanja.",
     "correlation_option_ban": "Zabrana prodaje sladoleda smanjila bi broj slučajeva utapanja.",
@@ -51,7 +55,7 @@
     "knights_option_both_knaves": "Oboje su varalice.",
     "knights_option_first_knight": "{name1} je vitez, a {name2} je varalica.",
     "knights_option_first_knave": "{name1} je varalica, a {name2} je vitez.",
-    "race_prompt": "Pet trkača, {n1}, {n2}, {n3}, {n4} i {n5}, završavaju utrku bez jednakosti. {n1} završava prije {n2}. {n2} završava prije {n4}. {n3} završava neposredno nakon {n4}. {n5} završava posljednji. Tko završava treći?",
+    "race_prompt": "Pet trkača, {n1}, {n2}, {n3}, {n4} i {n5}, završavaju utrku bez jednakosti. {n1} završava prije {n2}. {n2} završava prije {n4}. {n3} završava odmah nakon {n4}. {n5} završava posljednji. Tko završava treći?",
     "weekday_prompt": "Danas je {today}. Koji će dan u tjednu biti za {n} dana od danas?",
     "weekdays": [
       "ponedjeljak",
@@ -62,15 +66,15 @@
       "subota",
       "nedjelja"
     ],
-    "conditional_prompt": "Ako je alarm uključen, tada je svjetlo na kontrolnoj ploči zeleno. Svjetlo na kontrolnoj ploči nije zeleno. Što proizlazi samo iz ove dvije tvrdnje?",
+    "conditional_prompt": "Ako je alarm uključen, tada je svjetlo na kontrolnoj ploči zeleno. Svjetlo na kontrolnoj ploči nije zeleno. Što slijedi samo iz ove dvije tvrdnje?",
     "conditional_option_on": "Alarm je uključen.",
     "conditional_option_off": "Alarm nije uključen.",
     "conditional_option_broken": "Svjetlo na kontrolnoj ploči je pokvareno.",
     "conditional_option_nothing": "Ništa se ne može zaključiti o alarmu.",
-    "seating_prompt": "Četvero prijatelja, {n1}, {n2}, {n3} i {n4}, sjede oko kvadratnog stola, po jedan na svakoj strani, svi okrenuti prema sredini. {n1} sjedi izravno nasuprot {n2}. {n3} sjedi neposredno lijevo od {n1}. Tko sjedi neposredno desno od {n1}?",
-    "syllogism_prompt": "Pretpostavite da su ove dvije tvrdnje točne: Svi {w1} su {w2}. Neki {w2} su {w3}. Na temelju samo ovih tvrdnji, mora li biti točno da su neki {w1} također {w3}?",
+    "seating_prompt": "Četvero prijatelja, {n1}, {n2}, {n3} i {n4}, sjede oko kvadratnog stola, po jedan na svakoj strani, svi okrenuti prema sredini. {n1} sjedi izravno nasuprot {n2}. {n3} sjedi odmah lijevo od {n1}. Tko sjedi odmah desno od {n1}?",
+    "syllogism_prompt": "Pretpostavite da su ove dvije tvrdnje točne: Svi {w1} su {w2}. Neki {w2} su {w3}. Na temelju samo ovih tvrdnji, mora li biti točno da su neki {w1} zapravo {w3}?",
     "syllogism_option_yes": "Da, mora biti točno.",
-    "syllogism_option_no": "Ne, to ne proizlazi nužno.",
+    "syllogism_option_no": "Ne, to ne slijedi nužno.",
     "syllogism_option_all": "Da, i zapravo svi {w1} su {w3}.",
     "average_speed_prompt": "Automobil vozi {d} kilometara iz grada u grad brzinom od {v1} kilometara po satu i vraća se istim putem brzinom od {v2} kilometara po satu. Student kaže: \"Prosječna brzina za cijeli put je {wrong} kilometara po satu.\" Je li student u pravu? Objasnite razmišljanje i navedite točnu prosječnu brzinu. Odgovorite u najviše 150 riječi.",
     "average_speed_reference": "Student griješi: prosječna brzina je ukupni put podijeljen s ukupnim vremenom, a ne aritmetička sredina dvije brzine. Put traje {t1} sati u jednom smjeru i {t2} sata natrag, što je ukupno {total_time} sati za {total_distance} kilometara, pa je prosječna brzina {answer} kilometara po satu. Sporiji dio puta traje dulje i stoga ima veću težinu.",
