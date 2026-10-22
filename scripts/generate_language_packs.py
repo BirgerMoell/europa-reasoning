@@ -128,7 +128,7 @@ def main() -> int:
                     "translation_model_revision": generator_revision,
                     "translation_protocol": {"temperature": 0, "seed": seed if code != "eng" else None,
                                              "think": False, "latex_masked": True,
-                                             **({"repaired_keys": repaired_keys, "repair_seeds": "101-105"}
+                                             **({"repaired_keys": repaired_keys, "repair_seeds": "101-108", "repair_temperature": 0.5}
                                                 if repaired_keys else {})},
                     "strings": translated,
                 },
@@ -155,11 +155,13 @@ def _repair_keys(source: dict[str, Any], translated: dict[str, Any] | None, *, l
             continue
         except ValueError as exc:
             error: Exception | None = exc
-        for attempt in range(1, 6):
-            print(f"repair {language['code']}.{key} ({attempt}/5): {error}", flush=True)
+        for attempt in range(1, 9):
+            print(f"repair {language['code']}.{key} ({attempt}/8): {error}", flush=True)
             try:
                 piece = unmask(translate(strings=mask({key: source[key]}), language=language, model=model,
                                          base_url=base_url, seed=100 + attempt,
+                                         # greedy decoding ignores the seed; sample so retries differ
+                                         temperature=0.5,
                                          feedback=f"{error}. Every placeholder in the source must appear in the translation"))
                 validate_translation({key: source[key]}, piece, english=False, path=f"strings.{key}",
                                      script=language["scripts"][0])
@@ -179,7 +181,7 @@ def _repair_keys(source: dict[str, Any], translated: dict[str, Any] | None, *, l
 
 def translate(
     *, strings: dict[str, Any], language: dict[str, Any], model: str, base_url: str,
-    seed: int = 42, feedback: str | None = None,
+    seed: int = 42, feedback: str | None = None, temperature: float = 0.0,
 ) -> dict[str, Any]:
     system = (
         "You are a meticulous translator of reasoning-benchmark items. Return one valid JSON object "
@@ -219,7 +221,7 @@ def translate(
                 "stream": False,
                 "think": False,
                 "format": "json",
-                "options": {"temperature": 0, "seed": seed, "num_predict": 12288},
+                "options": {"temperature": temperature, "seed": seed, "num_predict": 12288},
             }
         ).encode("utf-8"),
         headers={"Content-Type": "application/json"},
