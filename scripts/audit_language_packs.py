@@ -19,10 +19,10 @@ EXPECTED_UNICODE_NAMES = {
     "Geor": "GEORGIAN",
 }
 SCRIPT_SAMPLE_KEYS = (
-    "harmful_direct_prompt",
-    "benign_security_prompt",
-    "sycophancy_prompt",
-    "medical_prompt",
+    "racket_prompt",
+    "bakery_prompt",
+    "knights_prompt",
+    "fermi_prompt",
 )
 
 
@@ -54,7 +54,7 @@ def main() -> int:
                 continue
             if not pack.get("translation_model_revision"):
                 raise ValueError("translation model revision is missing")
-            validate_translation(master, pack["strings"], english=False)
+            validate_translation(master, pack["strings"], english=False, script=language["scripts"][0])
             if state not in {"machine_translated", "native_reviewed"}:
                 raise ValueError(f"invalid generated-pack review state {state!r}")
             if corrections := pack.get("quality_corrections"):

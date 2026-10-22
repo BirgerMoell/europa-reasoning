@@ -67,7 +67,8 @@ def main() -> int:
         if destination.exists() and not args.overwrite:
             try:
                 existing = read_json(destination)
-                validate_translation(master["strings"], existing["strings"], english=code == "eng")
+                validate_translation(master["strings"], existing["strings"], english=code == "eng",
+                                     script=language["scripts"][0])
             except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
                 print(f"regenerate {code}: {exc}")
             else:
@@ -97,7 +98,7 @@ def main() -> int:
                         model=args.model, base_url=args.base_url, seed=seed,
                         feedback=str(last_error) if last_error else None,
                     ))
-                    validate_translation(master["strings"], translated, english=False)
+                    validate_translation(master["strings"], translated, english=False, script=language["scripts"][0])
                     break
                 except Exception as exc:  # noqa: BLE001 - retry one isolated local generation
                     last_error = exc
@@ -149,7 +150,8 @@ def _repair_keys(source: dict[str, Any], translated: dict[str, Any] | None, *, l
     repaired = dict(translated)
     for key in source:
         try:
-            validate_translation({key: source[key]}, {key: repaired[key]}, english=False, path=f"strings.{key}")
+            validate_translation({key: source[key]}, {key: repaired[key]}, english=False, path=f"strings.{key}",
+                                 script=language["scripts"][0])
             continue
         except ValueError as exc:
             error: Exception | None = exc
@@ -159,7 +161,8 @@ def _repair_keys(source: dict[str, Any], translated: dict[str, Any] | None, *, l
                 piece = unmask(translate(strings=mask({key: source[key]}), language=language, model=model,
                                          base_url=base_url, seed=100 + attempt,
                                          feedback=f"{error}. Every placeholder in the source must appear in the translation"))
-                validate_translation({key: source[key]}, piece, english=False, path=f"strings.{key}")
+                validate_translation({key: source[key]}, piece, english=False, path=f"strings.{key}",
+                                     script=language["scripts"][0])
                 repaired[key] = piece[key]
                 error = None
                 break
@@ -168,7 +171,7 @@ def _repair_keys(source: dict[str, Any], translated: dict[str, Any] | None, *, l
         if error is not None:
             return None
     try:
-        validate_translation(source, repaired, english=False)
+        validate_translation(source, repaired, english=False, script=language["scripts"][0])
     except ValueError:
         return None
     return repaired
@@ -232,12 +235,26 @@ def translate(
     return decoded
 
 
-def validate_translation(source: Any, translated: Any, *, english: bool, path: str = "strings") -> None:
+SCRIPT_UNICODE = {"Latn": "LATIN", "Cyrl": "CYRILLIC", "Grek": "GREEK", "Geor": "GEORGIAN"}
+
+
+def foreign_letters(text: str, script: str | None) -> list[str]:
+    """Letters outside the language's script; Latin is always allowed (names, placeholders)."""
+    expected = SCRIPT_UNICODE.get(script or "")
+    if expected is None:
+        return []
+    import unicodedata
+    return sorted({ch for ch in text if ch.isalpha()
+                   and not unicodedata.name(ch, "").startswith(("LATIN", expected))})
+
+
+def validate_translation(source: Any, translated: Any, *, english: bool, path: str = "strings",
+                         script: str | None = None) -> None:
     if isinstance(source, dict):
         if not isinstance(translated, dict) or source.keys() != translated.keys():
             raise ValueError(f"{path}: object keys differ")
         for key, value in source.items():
-            validate_translation(value, translated[key], english=english, path=f"{path}.{key}")
+            validate_translation(value, translated[key], english=english, path=f"{path}.{key}", script=script)
         if path == "strings":
             serialized = json.dumps(translated, ensure_ascii=False)
             source_serialized = json.dumps(source, ensure_ascii=False)
@@ -249,10 +266,12 @@ def validate_translation(source: Any, translated: Any, *, english: bool, path: s
         if not isinstance(translated, list) or len(source) != len(translated):
             raise ValueError(f"{path}: array shape changed")
         for index, value in enumerate(source):
-            validate_translation(value, translated[index], english=english, path=f"{path}[{index}]")
+            validate_translation(value, translated[index], english=english, path=f"{path}[{index}]", script=script)
         return
     if not isinstance(source, str) or not isinstance(translated, str) or not translated.strip():
         raise ValueError(f"{path}: expected non-empty text")
+    if foreign := foreign_letters(translated, script):
+        raise ValueError(f"{path}: letters from another script {foreign}; write only in the required script")
     if set(PLACEHOLDER.findall(source)) != set(PLACEHOLDER.findall(translated)):
         raise ValueError(f"{path}: placeholders changed: {sorted(set(PLACEHOLDER.findall(translated)))}")
     stripped = PLACEHOLDER.sub("", source).strip(" .,:;!?%…")
